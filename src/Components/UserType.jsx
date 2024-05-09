@@ -13,6 +13,10 @@ function UserType(props) {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.userType || !formData.name || !formData.qual || !formData.pincode || !formData.subject || !formData.city || !formData.state || !formData.phone) {
+      alert("Please fill all feilds");
+      return;
+    };
     console.log(formData);
     try {
       const userEmail = props.email;
@@ -25,7 +29,7 @@ function UserType(props) {
       localStorage.setItem("userData",JSON.stringify({...formData}));
       navigate("/login");
     } catch (error) {
-      // handle the error
+      
       console.error("Error adding document: ", error);
     }
   };
@@ -45,8 +49,7 @@ function UserType(props) {
       </button>
       <button
         className={`btn btn-md btn-outline-secondary text-light ${formData.userType === "student" ? "btn-secondary text-dark btn-outline-none" : ""}`}
-        onClick={() => {
-          // setPath("users/student/data");
+        onClick={() => {          
           setFormData({ ...formData, userType: "student" });
         }}
       >
@@ -63,9 +66,11 @@ function UserType(props) {
                 type="text"
                 placeholder="enter your full name"
                 value={formData.name}
+
                 onChange={(e) => {
                   setFormData({ ...formData, name: e.target.value });
                 }}
+                
               />
             </div>
             <div className="form-group">
@@ -78,6 +83,7 @@ function UserType(props) {
                 onChange={(e) =>
                   setFormData({ ...formData, qual: e.target.value })
                 }
+                
               />
             </div>
           </div>
@@ -93,7 +99,7 @@ function UserType(props) {
                 onChange={(e) =>
                   setFormData({ ...formData, address: e.target.value })
                 }
-              />
+                              />
             </div>
             <div className="form-group">
                 <div className="form-group">
@@ -105,7 +111,7 @@ function UserType(props) {
                   setFormData({ ...formData, subject: e.target.value })
                 }
                 className="form-control"
-              >
+                              >
                 <option value="">Choose Subject</option>
                 <option value="English">English</option>
                 <option value="Hindi">Hindi</option>
@@ -126,7 +132,7 @@ function UserType(props) {
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
                 }
-              />
+                              />
             </div>
             <div className="form-group">
               <Input
@@ -138,7 +144,7 @@ function UserType(props) {
                 onChange={(e) =>
                   setFormData({ ...formData, pincode: e.target.value })
                 }
-              />
+                              />
             </div>
           </div>
           <div className="form-row">
@@ -152,7 +158,7 @@ function UserType(props) {
                 onChange={(e) =>
                   setFormData({ ...formData, city: e.target.value })
                 }
-              />
+                              />
             </div>
             <div className="form-group">
               <Input
@@ -164,7 +170,7 @@ function UserType(props) {
                 onChange={(e) =>
                   setFormData({ ...formData, state: e.target.value })
                 }
-              />
+                              />
             </div>
           </div>
           <div className="form-group">

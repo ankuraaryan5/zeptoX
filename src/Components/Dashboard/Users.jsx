@@ -15,7 +15,8 @@ const Users = (props) => {
   const [paymentStatus, setPaymentStatus] = useState(false);
   const [showInterestButton, setShowInterestButton] = useState(true);
 
-  const paymentSubmit = async () => {
+  const paymentSubmit = async (e) => {
+    e.preventDefault()
     localStorage.setItem("productId", props.data.docId);
     const {
       data: { key },
@@ -100,7 +101,6 @@ const Users = (props) => {
           <div>
             <p className="card-text">{props.data.phone}</p>
             <p className="card-text">{props.data.address}</p>
-            <p className="card-text">{userEmail}</p>
           </div>
         )}
       </div>

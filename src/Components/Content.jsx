@@ -50,7 +50,7 @@ function Content() {
             </div>
         </div>
       </section>
-      <div style={{}}>
+      <div>
       <Pricing/>
       </div>
 

@@ -6,18 +6,17 @@ function ActiveChatbot() {
 
   // Array containing questions and answers
   const questionsAndAnswers = [
-    { question: 'Question 1', answer: 'Answer 1' },
-    { question: 'Question 2', answer: 'Answer 2' },
-    { question: 'Question 3', answer: 'Answer 3' },
-    { question: 'Question 4', answer: 'Answer 4' },
-    { question: 'Question 5', answer: 'Answer 5' },
-    { question: 'Question 6', answer: 'Answer 6' },
-    { question: 'Question 7', answer: 'Answer 7' },
-    { question: 'Question 8', answer: 'Answer 8' },
-    { question: 'Question 9', answer: 'Answer 9' },
-    { question: 'Question 10', answer: 'Answer 10' },
-    { question: 'Question 11', answer: 'Answer 11' },
-    { question: 'Question 12', answer: 'Answer 12' }
+    { question: 'What is zeptoX?', answer: 'We are a platform that connects students and teachers based on their pincode' },
+    { question: 'What is the idea behind zeptoX?', answer: 'We are here to revolutionize the way of education in offline mode, we are here to make quality education accessible to everyone' },
+    { question: 'How can I contanct zeptoX', answer: 'To get in touch with us, click on the "Contact Us" button in the top right corner' },
+    { question: 'How can I get started?', answer: 'To get yourself started with zeptoX, click on the "Signup" button in the top right corner, once signed up, you will be redirected to the registration page, once you fill that, You are set to go' },
+    { question: 'What should be the qualification to register as a teacher?', answer: 'to register as a teacher you need to have at least completed your 12th' },
+    { question: 'How can I find teachers? ', answer: 'Once you are signed up, you will be able to find teachers based on your pincode' },
+    { question: 'How can I find students?', answer: 'Once you are signed up, you will be able to find students based on your pincode' },
+    { question: 'Where can I buy books?', answer: 'you can buy books in the bookstore in our home section itself' },
+    { question: 'How much earliest can I get my books?', answer: 'we will take maximum of 1 week to deliver the books to you' },
+    { question: 'Will there be any discounts?', answer: 'You will have to pay only for the books' },
+    { question: 'Is there any job openings in zeptoX?', answer: 'Currently we don' + "'" + 't have any openings but stay connected as we will be planning some bigger things in future' }
   ];
 
   return (
@@ -31,7 +30,7 @@ function ActiveChatbot() {
             <button className='btn btn-outline-success text-center text-white' onClick={() => setSelectedAnswer(item.answer)}>
               {item.question}
             </button>
-            {selectedAnswer === item.answer && <p>{item.answer}</p>}
+            {selectedAnswer === item.answer && <p className='text-center text-dark fw-bold'>{item.answer}</p>}
           </div>
         ))}
       </div>

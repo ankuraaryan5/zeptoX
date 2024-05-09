@@ -7,7 +7,7 @@ function Seven() {
             <Dropdown>
                 <Link to="/Subject">
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Choose Class
+                        Twelfth
                     </Dropdown.Toggle>
                 </Link>
 

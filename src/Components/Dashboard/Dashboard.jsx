@@ -16,8 +16,9 @@ function Dashboard() {
 
   const handleSubmit = () => {
     
+    const pin = localStorage.getItem("pincode");
+    console.log(pin);
     if (userData) {
-      const pin = localStorage.getItem("pincode");
       if (pin === "") {
         console.log(pin);
         return;
@@ -30,21 +31,20 @@ function Dashboard() {
         where("userType", "==", uType),
         where("pincode", "==", pin)
       );
-
+      
       getDocs(q).then((data) => {
         const std = data.docs.map((doc) => ({
           ...doc.data(),
           docId: doc.id,
         }));
         setFilteredStudents(std);
+        if (std.length === 0) {
+          alert("No user found");
+        }
       });
     }
   };
   console.log(filteredStudents);
-
-  useEffect(() => {
-    handleSubmit();
-  }, []);
 
   return (
     <div className="container container-fluid">

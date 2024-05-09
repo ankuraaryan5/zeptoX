@@ -1,35 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
-function Subject() {
-    return (
-        <section className="mt-3">
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Choose Class
-                </Dropdown.Toggle>
+import React,{useState} from "react";
 
-                <Dropdown.Menu>
-                    <Link to="/Six">
-                        <Dropdown.Item href="#/action-1">Class 6</Dropdown.Item>
-                    </Link>
-                    <Link to="/Seven">
-                        <Dropdown.Item href="#/action-2">Class 7</Dropdown.Item>
-                    </Link>
-                    <Link to="/Eight">
-                        <Dropdown.Item href="#/action-3">Class 8</Dropdown.Item>
-                    </Link>
-                    <Link to="/Nine">
-                        <Dropdown.Item href="#/action-3">Class 9</Dropdown.Item>
-                    </Link>
-                    <Link to="/Tenth">
-                        <Dropdown.Item href="#/action-3">Class 10</Dropdown.Item>
-                    </Link>
-                    <Link to="/Twelfth">
-                        <Dropdown.Item href="#/action-3">Class 11-12</Dropdown.Item>
-                    </Link>
-                </Dropdown.Menu>
-            </Dropdown>
+import { useNavigate } from "react-router-dom";
+
+function Subject() {
+    const [selectedClass, setSelectedClass] = useState("");
+    const navigate = useNavigate();
+    const handleClassChange = (event) => {
+        event.preventDefault()
+        setSelectedClass(event.target.value);
+        navigate(`/${event.target.value}`);
+    }
+    return (
+        <section className="mt-3 ">
+            <div>
+                <select className="form-select" value={selectedClass} onChange={handleClassChange}>
+                    <option value="" >Select Class</option>
+                    <option value="six">Class 6</option>
+                    <option value="seven">Class 7</option>
+                    <option value="eight">Class 8</option>
+                    <option value="nine">Class 9</option>
+                    <option value="ten">Class 10</option>
+                </select>
+            </div>
             <h1 className="text-center text-light text-decoration-underline mb-3">List Of Subjects</h1>
             <div className="row">
                 <div className="col-lg-3 col-md-6 mb-3">
